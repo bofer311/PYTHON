@@ -8,9 +8,6 @@ flete = input("¿Desea retirar el pedido en el local o necesita flete? (Ingrese 
 # Solicitar la forma de pago
 forma_pago = int(input("Ingrese la forma de pago (1: efectivo, 2: tarjeta de crédito, 3: pagaré): "))
 
-# Calcular el precio total y mostrar el resultado
-
-
 # Definir la función para calcular el precio total
 def precio_total(toneladas_tipo_1, toneladas_tipo_2, flete, forma_pago):
     precio_tipo1 = 36830
@@ -38,7 +35,6 @@ def precio_total(toneladas_tipo_1, toneladas_tipo_2, flete, forma_pago):
     else:
         total_con_flete = total_con_descuento
 
-    
     recargo = 0
     
     if forma_pago == 1:
@@ -59,4 +55,16 @@ def precio_total(toneladas_tipo_1, toneladas_tipo_2, flete, forma_pago):
     print(f"Total de yerba tipo 2: {toneladas_tipo_2}, subtotal: {subtotal_tipo2}")
     print(f"Subtotal: {subtotal}")
     print(f"Descuento aplicado: {descuento_aplicado}, ({descuento*100}%)")
+    print(f"Total con descuento: {total_con_descuento}")
 
+    if flete == "2":
+        print(f"Flete: {float(flete) * 100}%")
+        print(f"Total con flete: {total_con_flete}")
+    else:
+        print("Retiro en local, sin flete.")
+
+    print(f"Recargo: {recargo * 100}%")
+    print(f"Total con recargo: {total_con_recargo}")
+
+# Llamar a la función para calcular el precio total
+precio_total(toneladas_tipo_1, toneladas_tipo_2, flete, forma_pago)
